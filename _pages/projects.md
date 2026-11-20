@@ -9,11 +9,24 @@ horizontal: false
 ---
 
 <!-- pages/projects.md -->
+<style>
+  /* Make category headings readable: the theme default is divider-colored and right-aligned. */
+  .projects h2.category {
+    color: var(--global-text-color);
+    text-align: left;
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+  .projects a:has(> h2.category):hover {
+    text-decoration: none;
+  }
+</style>
 <div class="projects">
 {% if site.enable_project_categories and page.display_categories %}
   <!-- Display categorized projects -->
   {% for category in page.display_categories %}
-  <a id="{{ category }}" href=".#{{ category }}">
+  <a id="{{ category | slugify }}" href=".#{{ category | slugify }}">
     <h2 class="category">{{ category }}</h2>
   </a>
   {% assign categorized_projects = site.projects | where: "category", category %}
