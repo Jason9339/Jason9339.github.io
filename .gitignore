@@ -19,3 +19,6 @@ vendor
 # Python bytecode from bin/ helper scripts
 __pycache__/
 *.pyc
+
+# Private source files (CV with phone number, paper PDF) — never commit
+personal data/
